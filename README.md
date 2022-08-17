@@ -23,6 +23,6 @@ To run development server on localhost:3000
 
 **Client:** React, Next. JS, Chakra UI
 
-**Server:** 
+**Server:** Prisma & PostgreSQL on Heroku
 
 
