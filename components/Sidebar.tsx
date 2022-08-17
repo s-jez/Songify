@@ -46,6 +46,9 @@ const musicElements = [
     route: "/favorites",
   },
 ];
+const playlistElements = new Array(30)
+  .fill(1)
+  .map((_, i) => `Playlist Element ${i + 1}`);
 const Sidebar = () => {
   return (
     <Box
@@ -76,11 +79,16 @@ const Sidebar = () => {
           </List>
         </Box>
       </Box>
-      <Divider />
-      <Box>
+      <Divider color="gray.800" />
+      <Box marginTop="20px" marginBottom="20px">
         <List spacing={2}>
           {musicElements.map((el) => (
-            <ListItem padding="15px" fontSize="16px" key={el.name}>
+            <ListItem
+              paddingX="20px"
+              paddingY="5px"
+              fontSize="16px"
+              key={el.name}
+            >
               <LinkBox>
                 <NextLink href={el.route} passHref>
                   <LinkOverlay>
@@ -88,6 +96,18 @@ const Sidebar = () => {
                     {el.name}
                   </LinkOverlay>
                 </NextLink>
+              </LinkBox>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+      <Divider color="gray.800" />
+      <Box height="55%" overflowY="auto" padding="20px">
+        <List spacing={2}>
+          {playlistElements.map((item) => (
+            <ListItem paddingX="20px" key={item}>
+              <LinkBox>
+                <NextLink href="/">{item}</NextLink>
               </LinkBox>
             </ListItem>
           ))}
