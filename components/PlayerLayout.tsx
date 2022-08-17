@@ -10,7 +10,14 @@ const PlayerLayout = ({ children }) => {
       <Box marginLeft="250px" marginBottom="110px">
         {children}
         <Box position="absolute" bottom="0" left="0">
-          Player
+          <Box
+            background="#333"
+            paddingX="105px"
+            paddingY="50px"
+            color="gray.400"
+          >
+            Player
+          </Box>
         </Box>
       </Box>
     </Box>
