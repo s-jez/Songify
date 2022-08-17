@@ -7,6 +7,7 @@ import {
   ListIcon,
   LinkBox,
   LinkOverlay,
+  Divider,
 } from "@chakra-ui/layout";
 import {
   MdHome,
@@ -75,10 +76,11 @@ const Sidebar = () => {
           </List>
         </Box>
       </Box>
-      <Box paddingY="5px">
+      <Divider />
+      <Box>
         <List spacing={2}>
           {musicElements.map((el) => (
-            <ListItem padding="20px" fontSize="16px" key={el.name}>
+            <ListItem padding="15px" fontSize="16px" key={el.name}>
               <LinkBox>
                 <NextLink href={el.route} passHref>
                   <LinkOverlay>
