@@ -32,15 +32,17 @@ const navbarElements = [
     icon: MdLibraryMusic,
     route: "/libary",
   },
+];
+const musicElements = [
   {
-    name: "Playlist",
+    name: "Create Playlist",
     icon: MdPlaylistAdd,
-    route: "/playlist",
+    route: "/",
   },
   {
-    name: "Favorite",
+    name: "Favorites",
     icon: MdFavorite,
-    route: "/favorite",
+    route: "/favorites",
   },
 ];
 const Sidebar = () => {
@@ -72,6 +74,22 @@ const Sidebar = () => {
             ))}
           </List>
         </Box>
+      </Box>
+      <Box paddingY="5px">
+        <List spacing={2}>
+          {musicElements.map((el) => (
+            <ListItem padding="20px" fontSize="16px" key={el.name}>
+              <LinkBox>
+                <NextLink href={el.route} passHref>
+                  <LinkOverlay>
+                    <ListIcon as={el.icon} color="white" marginRight="18px" />
+                    {el.name}
+                  </LinkOverlay>
+                </NextLink>
+              </LinkBox>
+            </ListItem>
+          ))}
+        </List>
       </Box>
     </Box>
   );
