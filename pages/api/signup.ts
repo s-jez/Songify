@@ -35,4 +35,15 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     id: user.id,
     time: Date.now(),
   }, 'hello', {expiresIn: '12h'})
+  res.setHeader(
+    'Set-Cookie',
+    cookie.serialize('ACCESS_TOKEN', token, {
+      httpOnly: true,
+      maxAge: 8 * 60 * 60,
+      path: '/',
+      sameSite: 'songify',
+      secure: process.env.NODE_ENV === 'production',
+    })
+  )
+  res.json(user)
 }
