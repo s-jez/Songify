@@ -31,13 +31,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
   const token = jwt.sign({
-    email: user.email,
     id: user.id,
+    email: user.email,
     time: Date.now(),
   }, 'hello', {expiresIn: '12h'})
   res.setHeader(
     'Set-Cookie',
-    cookie.serialize('ACCESS_TOKEN', token, {
+    cookie.serialize(process.env['COOKIE_NAME'], token, {
       httpOnly: true,
       maxAge: 8 * 60 * 60,
       path: '/',
