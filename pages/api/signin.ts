@@ -31,7 +31,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }, process.env['TOKEN_SECRET'], {expiresIn: '12h'})
     res.setHeader(
       'Set-Cookie',
-      cookie.serialize(process.env['COOKIE_NAME'], token, {
+      cookie.serialize(process.env['COOKIE_NAME'], token, {  
         httpOnly: true,
         maxAge: 8 * 3600,
         path: '/',
