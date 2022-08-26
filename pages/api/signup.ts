@@ -41,7 +41,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       httpOnly: true,
       maxAge: 8 * 60 * 60,
       path: '/',
-      sameSite: 'songify',
       secure: process.env.NODE_ENV === 'production',
     })
   )
