@@ -20,9 +20,14 @@ export const validateRoute = (handler) => {
         }
       }
       catch (error) {
-        res.status(404)
+        console.log(error)
+        res.status(401)
         res.json({error: 'Not Authorized!'})
+        return
       }
+      return handler(req, res, user)
     }
+    res.status(401)
+    res.json({error: 'Not Authorized!'})
   }
 }
