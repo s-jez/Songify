@@ -1,11 +1,10 @@
-import { Box } from "@chakra-ui/layout";
-import Signin from "./api/signin";
+import GradientLayout from "../components/gradientLayout";
 
 const Home = () => {
   return (
-    <div>
-      <Box background="rgb(21, 21, 21)" height="100vh"></Box>
-    </div>
+    <GradientLayout color="red">
+      <div>home page</div>
+    </GradientLayout>
   );
 };
 export default Home;

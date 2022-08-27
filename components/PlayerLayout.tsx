@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/layout";
+import GradientLayout from "./gradientLayout";
 import Sidebar from "./Sidebar";
 
 const PlayerLayout = ({ children }) => {
@@ -8,7 +9,7 @@ const PlayerLayout = ({ children }) => {
         <Sidebar />
       </Box>
       <Box marginLeft="250px" marginBottom="110px">
-        {children}
+        <Box>{children}</Box>
         <Box position="absolute" bottom="0" left="0">
           <Box
             background="#333"
