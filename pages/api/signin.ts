@@ -37,7 +37,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       cookie.serialize(serverRuntimeConfig.COOKIE_NAME, token, {  
         httpOnly: true,
         maxAge: 8 * 3600,
-        path: '/',
+        path: '/signin',
         secure: process.env.NODE_ENV === 'production',
       })
     )

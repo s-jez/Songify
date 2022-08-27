@@ -37,13 +37,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     id: user.id,
     email: user.email,
     time: Date.now(),
-  },serverRuntimeConfig.TOKEN_SECRET, {expiresIn: '12h'})
+  }, serverRuntimeConfig.TOKEN_SECRET, {expiresIn: '12h'})
   res.setHeader(
     'Set-Cookie',
     cookie.serialize(serverRuntimeConfig.COOKIE_NAME, token, {
       httpOnly: true,
       maxAge: 8 * 60 * 60,
-      path: '/',
+      path: '/signup',
       secure: process.env.NODE_ENV === 'production',
     })
   )
