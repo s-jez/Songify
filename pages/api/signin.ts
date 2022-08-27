@@ -1,8 +1,11 @@
+import getConfig from 'next/config';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import cookie from 'cookie';
 import { PrismaClient } from '@prisma/client';
 import { NextApiRequest, NextApiResponse } from 'next';
+
+const { serverRuntimeConfig } = getConfig();
 
 const prisma = new PrismaClient();
 
@@ -28,17 +31,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       id: user.id,
       email: user.email,
       time: Date.now(),
-    }, process.env['TOKEN_SECRET'], {expiresIn: '12h'})
+    }, serverRuntimeConfig.TOKEN_SECRET, {expiresIn: '12h'})
     res.setHeader(
       'Set-Cookie',
-      cookie.serialize(process.env['COOKIE_NAME'], token, {  
+      cookie.serialize(serverRuntimeConfig.COOKIE_NAME, token, {  
         httpOnly: true,
         maxAge: 8 * 3600,
         path: '/',
         secure: process.env.NODE_ENV === 'production',
       })
     )
-    res.json(user)
+    res.status(200).json(user)
   } else {
     res.status(401).send({error: 'Email or password are wrong!'})
   }

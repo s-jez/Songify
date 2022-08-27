@@ -6,11 +6,16 @@ export default function middleware(
   request: NextRequest,
 ){
   if(signedinPages.find((url) => url === request.nextUrl.pathname)) {
-    const token = request.cookies['TOKEN_SECRET']
+    const token = request.cookies["COOKIE_NAME"]
     if(!token) {
       const url = request.nextUrl.clone();
-      console.log(url)
       url.pathname = "/signin"
+      url.search = "";
+      return NextResponse.redirect(url)
+    }
+    if(token) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/"
       url.search = "";
       return NextResponse.redirect(url)
     }
