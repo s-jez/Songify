@@ -1,4 +1,4 @@
-import { Box, Flex } from "@chakra-ui/layout";
+import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 
 const GradientLayout = ({
@@ -24,6 +24,18 @@ const GradientLayout = ({
             src={image}
             borderRadius={roundImage ? "100%" : "3px"}
           ></Image>
+        </Box>
+        <Box padding="20px" lineHeight="40px" color="white">
+          <Text
+            fontSize="mall"
+            fontWeight="bold"
+            casing="uppercase"
+            letterSpacing="3px"
+          >
+            {subtitle}
+          </Text>
+          <Text fontSize="6xl">{title}</Text>
+          <Text fontSize="x-small">{description}</Text>
         </Box>
       </Flex>
     </Box>
